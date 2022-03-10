@@ -5,6 +5,8 @@ class Nonprofit < ApplicationRecord
 
   # Validations
 
+  validates :status, :presence => true
+
   # Scopes
 
   def to_s
