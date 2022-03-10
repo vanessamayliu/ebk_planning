@@ -12,6 +12,8 @@ RSpec.describe Nonprofit, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:owner_user_id) }
+
     it { should validate_presence_of(:status) }
 
     end
