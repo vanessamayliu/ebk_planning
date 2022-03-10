@@ -172,7 +172,7 @@
 
     <%= f.label :owner_user_id %>
     <!-- Input for owner_user_id start -->
-    <%= f.number_field :owner_user_id, class: owner_user_class, placeholder: "Enter owner user" %>
+    <%= f.collection_select :owner_user_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for owner_user_id end -->
     <% if owner_user_was_invalid %>
       <% nonprofit.errors.full_messages_for(:owner_user).each do |message| %>
