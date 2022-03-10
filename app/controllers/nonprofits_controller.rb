@@ -4,27 +4,22 @@ class NonprofitsController < ApplicationController
 
   before_action :set_nonprofit, only: %i[show edit update destroy]
 
-  # GET /nonprofits
   def index
     @q = Nonprofit.ransack(params[:q])
     @nonprofits = @q.result(distinct: true).includes(:owner_user,
                                                      :events).page(params[:page]).per(10)
   end
 
-  # GET /nonprofits/1
   def show
     @event = Event.new
   end
 
-  # GET /nonprofits/new
   def new
     @nonprofit = Nonprofit.new
   end
 
-  # GET /nonprofits/1/edit
   def edit; end
 
-  # POST /nonprofits
   def create
     @nonprofit = Nonprofit.new(nonprofit_params)
 
@@ -40,7 +35,6 @@ class NonprofitsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /nonprofits/1
   def update
     if @nonprofit.update(nonprofit_params)
       redirect_to @nonprofit, notice: "Nonprofit was successfully updated."
@@ -49,7 +43,6 @@ class NonprofitsController < ApplicationController
     end
   end
 
-  # DELETE /nonprofits/1
   def destroy
     @nonprofit.destroy
     message = "Nonprofit was successfully deleted."
@@ -70,12 +63,10 @@ class NonprofitsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_nonprofit
     @nonprofit = Nonprofit.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def nonprofit_params
     params.require(:nonprofit).permit(:name, :category, :mission,
                                       :contact_name, :contact_email, :contact_phone, :owner_user_id, :status, :notes)
