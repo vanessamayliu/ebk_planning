@@ -14,6 +14,8 @@ class NonprofitResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :events
+
   belongs_to :owner_user,
              resource: UserResource
 

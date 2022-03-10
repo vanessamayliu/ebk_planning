@@ -12,6 +12,8 @@ class EventResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :nonprofit
+
   # Indirect associations
 
 end
