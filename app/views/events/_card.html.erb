@@ -6,43 +6,29 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Nonprofit</dt>
-      <!-- Display nonprofit_id start -->
       <dd>
         <% if @event.nonprofit.present? %>
           <%= link_to event.nonprofit, event.nonprofit %>
         <% end %>
       </dd>
-      <!-- Display nonprofit_id end -->
 
       <dt>Event date</dt>
-      <!-- Display event_date start -->
       <dd><%= event.event_date %></dd>
-      <!-- Display event_date end -->
 
       <dt>Event description</dt>
-      <!-- Display event_description start -->
       <dd><%= event.event_description %></dd>
-      <!-- Display event_description end -->
 
       <dt>Confirmed</dt>
-      <!-- Display confirmed start -->
       <dd><%= event.confirmed %></dd>
-      <!-- Display confirmed end -->
 
       <dt>Number volunteers</dt>
-      <!-- Display number_volunteers start -->
       <dd><%= event.number_volunteers %></dd>
-      <!-- Display number_volunteers end -->
 
       <dt>Event time range</dt>
-      <!-- Display event_time_range start -->
       <dd><%= event.event_time_range %></dd>
-      <!-- Display event_time_range end -->
 
       <dt>Event lead</dt>
-      <!-- Display event_lead start -->
       <dd><%= event.event_lead %></dd>
-      <!-- Display event_lead end -->
 
     </dl>
 
@@ -51,21 +37,17 @@
         <%= link_to_show_or_back event, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link event start -->
       <div class="col">
         <%= link_to edit_event_url(event), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link event end -->
 
-      <!-- Delete link event start -->
       <div class="col">
         <%= link_to event, method: :delete, data: { confirm: "Do you really want to delete this event?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link event end -->
     </div>
   </div>
 

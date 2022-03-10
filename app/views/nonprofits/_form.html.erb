@@ -1,7 +1,6 @@
 <% was_validated = nonprofit.errors.any? %>
 
 <%= form_with(model: nonprofit, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = nonprofit.errors.include?(:name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% nonprofit.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for category start -->
   <div class="form-group">
     <% category_class = "form-control" %>
     <% category_was_invalid = nonprofit.errors.include?(:category) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :category %>
-    <!-- Input for category start -->
     <%= f.text_field :category, class: category_class, placeholder: "Enter category" %>
-    <!-- Input for category end -->
     <% if category_was_invalid %>
       <% nonprofit.errors.full_messages_for(:category).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for category end -->
-  <!-- Label and input for mission start -->
   <div class="form-group">
     <% mission_class = "form-control" %>
     <% mission_was_invalid = nonprofit.errors.include?(:mission) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :mission %>
-    <!-- Input for mission start -->
     <%= f.text_area :mission, class: mission_class, placeholder: "Enter mission" %>
-    <!-- Input for mission end -->
     <% if mission_was_invalid %>
       <% nonprofit.errors.full_messages_for(:mission).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for mission end -->
-  <!-- Label and input for contact_name start -->
   <div class="form-group">
     <% contact_name_class = "form-control" %>
     <% contact_name_was_invalid = nonprofit.errors.include?(:contact_name) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :contact_name %>
-    <!-- Input for contact_name start -->
     <%= f.text_field :contact_name, class: contact_name_class, placeholder: "Enter contact name" %>
-    <!-- Input for contact_name end -->
     <% if contact_name_was_invalid %>
       <% nonprofit.errors.full_messages_for(:contact_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for contact_name end -->
-  <!-- Label and input for contact_email start -->
   <div class="form-group">
     <% contact_email_class = "form-control" %>
     <% contact_email_was_invalid = nonprofit.errors.include?(:contact_email) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :contact_email %>
-    <!-- Input for contact_email start -->
     <%= f.text_field :contact_email, class: contact_email_class, placeholder: "Enter contact email" %>
-    <!-- Input for contact_email end -->
     <% if contact_email_was_invalid %>
       <% nonprofit.errors.full_messages_for(:contact_email).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for contact_email end -->
-  <!-- Label and input for contact_phone start -->
   <div class="form-group">
     <% contact_phone_class = "form-control" %>
     <% contact_phone_was_invalid = nonprofit.errors.include?(:contact_phone) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :contact_phone %>
-    <!-- Input for contact_phone start -->
     <%= f.text_field :contact_phone, class: contact_phone_class, placeholder: "Enter contact phone" %>
-    <!-- Input for contact_phone end -->
     <% if contact_phone_was_invalid %>
       <% nonprofit.errors.full_messages_for(:contact_phone).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,13 +133,7 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for contact_phone end -->
-  <!-- Label and input for owner_user_id start -->
-  <!-- Input for "owner_user_id" start -->
   <%= f.hidden_field :owner_user_id, value: current_user.id %>
-  <!-- Input for "owner_user_id" end -->
-  <!-- Label and input for owner_user_id end -->
-  <!-- Label and input for status start -->
   <div class="form-group">
     <% status_class = "form-control" %>
     <% status_was_invalid = nonprofit.errors.include?(:status) %>
@@ -176,9 +147,7 @@
     <% end %>
 
     <%= f.label :status %>
-    <!-- Input for status start -->
     <%= f.text_area :status, class: status_class, placeholder: "Enter status" %>
-    <!-- Input for status end -->
     <% if status_was_invalid %>
       <% nonprofit.errors.full_messages_for(:status).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -187,8 +156,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for status end -->
-  <!-- Label and input for notes start -->
   <div class="form-group">
     <% note_class = "form-control" %>
     <% note_was_invalid = nonprofit.errors.include?(:note) %>
@@ -202,9 +169,7 @@
     <% end %>
 
     <%= f.label :notes %>
-    <!-- Input for notes start -->
     <%= f.text_area :notes, class: note_class, placeholder: "Enter note" %>
-    <!-- Input for notes end -->
     <% if note_was_invalid %>
       <% nonprofit.errors.full_messages_for(:note).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -213,6 +178,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for notes end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

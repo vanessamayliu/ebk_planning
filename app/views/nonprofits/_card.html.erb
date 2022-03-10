@@ -6,53 +6,35 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= nonprofit.name %></dd>
-      <!-- Display name end -->
 
       <dt>Category</dt>
-      <!-- Display category start -->
       <dd><%= nonprofit.category %></dd>
-      <!-- Display category end -->
 
       <dt>Mission</dt>
-      <!-- Display mission start -->
       <dd><%= nonprofit.mission %></dd>
-      <!-- Display mission end -->
 
       <dt>Contact name</dt>
-      <!-- Display contact_name start -->
       <dd><%= nonprofit.contact_name %></dd>
-      <!-- Display contact_name end -->
 
       <dt>Contact email</dt>
-      <!-- Display contact_email start -->
       <dd><%= nonprofit.contact_email %></dd>
-      <!-- Display contact_email end -->
 
       <dt>Contact phone</dt>
-      <!-- Display contact_phone start -->
       <dd><%= nonprofit.contact_phone %></dd>
-      <!-- Display contact_phone end -->
 
       <dt>Owner user</dt>
-      <!-- Display owner_user_id start -->
       <dd>
         <% if @nonprofit.owner_user.present? %>
           <%= link_to nonprofit.owner_user, nonprofit.owner_user %>
         <% end %>
       </dd>
-      <!-- Display owner_user_id end -->
 
       <dt>Status</dt>
-      <!-- Display status start -->
       <dd><%= nonprofit.status %></dd>
-      <!-- Display status end -->
 
       <dt>Notes</dt>
-      <!-- Display notes start -->
       <dd><%= nonprofit.notes %></dd>
-      <!-- Display notes end -->
 
     </dl>
 
@@ -61,7 +43,6 @@
         <%= link_to_show_or_back nonprofit, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link nonprofit start -->
       <div class="col">
         <% if current_user == @nonprofit.owner_user %>
           <%= link_to edit_nonprofit_url(nonprofit), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -69,9 +50,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link nonprofit end -->
 
-      <!-- Delete link nonprofit start -->
       <div class="col">
         <% if current_user == @nonprofit.owner_user %>
           <%= link_to nonprofit, method: :delete, data: { confirm: "Do you really want to delete this nonprofit?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -79,7 +58,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link nonprofit end -->
     </div>
   </div>
 
