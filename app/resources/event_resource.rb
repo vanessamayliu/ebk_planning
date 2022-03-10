@@ -21,7 +21,7 @@ class EventResource < ApplicationResource
 
   filter :owner_user_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:owner_user).where(:nonprofits => {:owner_user_id => value})
+      scope.eager_load(:owner_user).where(nonprofits: { owner_user_id: value })
     end
   end
 end

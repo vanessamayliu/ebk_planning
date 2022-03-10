@@ -13,7 +13,7 @@ class Api::V1::NonprofitsController < Api::V1::GraphitiController
     nonprofit = NonprofitResource.build(params)
 
     if nonprofit.save
-      render jsonapi: nonprofit, status: 201
+      render jsonapi: nonprofit, status: :created
     else
       render jsonapi_errors: nonprofit
     end
@@ -33,7 +33,7 @@ class Api::V1::NonprofitsController < Api::V1::GraphitiController
     nonprofit = NonprofitResource.find(params)
 
     if nonprofit.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: nonprofit
     end

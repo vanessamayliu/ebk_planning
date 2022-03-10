@@ -1,21 +1,20 @@
 class User < ApplicationRecord
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :nonprofits,
-             :foreign_key => "owner_user_id",
-             :dependent => :destroy
+             foreign_key: "owner_user_id",
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :events,
-             :through => :nonprofits,
-             :source => :events
+             through: :nonprofits,
+             source: :events
 
   # Validations
 
-  validates :name, :presence => true
+  validates :name, presence: true
 
   # Scopes
 

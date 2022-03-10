@@ -20,5 +20,4 @@ class NonprofitResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end
