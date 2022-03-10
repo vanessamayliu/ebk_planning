@@ -1,6 +1,9 @@
 class Nonprofit < ApplicationRecord
   # Direct associations
 
+  has_many   :events,
+             :dependent => :destroy
+
   belongs_to :owner_user,
              :class_name => "User"
 

@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
   # Direct associations
 
+  belongs_to :nonprofit
+
   # Indirect associations
 
   # Validations
