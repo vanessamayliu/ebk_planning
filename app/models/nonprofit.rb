@@ -1,6 +1,9 @@
 class Nonprofit < ApplicationRecord
   # Direct associations
 
+  belongs_to :owner_user,
+             :class_name => "User"
+
   # Indirect associations
 
   # Validations
