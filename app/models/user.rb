@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :events,
+             :through => :nonprofits,
+             :source => :events
+
   # Validations
 
   validates :name, :presence => true

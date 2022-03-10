@@ -5,6 +5,10 @@ class Event < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :owner_user,
+             :through => :nonprofit,
+             :source => :owner_user
+
   # Validations
 
   validates :confirmed, :presence => true

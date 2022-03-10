@@ -10,6 +10,8 @@ RSpec.describe Event, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_one(:owner_user) }
+
     end
 
     describe "Validations" do
