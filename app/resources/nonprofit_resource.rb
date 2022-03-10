@@ -14,6 +14,9 @@ class NonprofitResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :owner_user,
+             resource: UserResource
+
   # Indirect associations
 
 end
