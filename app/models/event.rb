@@ -5,6 +5,8 @@ class Event < ApplicationRecord
 
   # Validations
 
+  validates :confirmed, :presence => true
+
   validates :nonprofit_id, :presence => true
 
   # Scopes
