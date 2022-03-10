@@ -16,4 +16,12 @@ class EventResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :owner_user,
+             resource: UserResource
+
+  filter :owner_user_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:owner_user).where(:nonprofits => {:owner_user_id => value})
+    end
+  end
 end

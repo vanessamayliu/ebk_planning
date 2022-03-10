@@ -13,4 +13,12 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :events do
+    assign_each do |user, events|
+      events.select do |e|
+        e.id.in?(user.events.map(&:id))
+      end
+    end
+  end
+
 end
