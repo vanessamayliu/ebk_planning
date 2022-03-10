@@ -5,7 +5,7 @@ class NonprofitsController < ApplicationController
 
   # GET /nonprofits
   def index
-    @nonprofits = Nonprofit.all
+    @nonprofits = Nonprofit.page(params[:page]).per(10)
   end
 
   # GET /nonprofits/1
