@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Nonprofit</dt>
       <!-- Display nonprofit_id start -->
-      <dd><%= event.nonprofit_id %></dd>
+      <dd>
+        <% if @event.nonprofit.present? %>
+          <%= link_to event.nonprofit, event.nonprofit %>
+        <% end %>
+      </dd>
       <!-- Display nonprofit_id end -->
 
       <dt>Event date</dt>

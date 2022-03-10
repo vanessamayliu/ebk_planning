@@ -37,7 +37,11 @@
 
       <dt>Owner user</dt>
       <!-- Display owner_user_id start -->
-      <dd><%= nonprofit.owner_user_id %></dd>
+      <dd>
+        <% if @nonprofit.owner_user.present? %>
+          <%= link_to nonprofit.owner_user, nonprofit.owner_user %>
+        <% end %>
+      </dd>
       <!-- Display owner_user_id end -->
 
       <dt>Status</dt>
