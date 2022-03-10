@@ -16,7 +16,7 @@
 
     <%= f.label :nonprofit_id %>
     <!-- Input for nonprofit_id start -->
-    <%= f.number_field :nonprofit_id, class: nonprofit_class, placeholder: "Enter nonprofit" %>
+    <%= f.collection_select :nonprofit_id, Nonprofit.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for nonprofit_id end -->
     <% if nonprofit_was_invalid %>
       <% event.errors.full_messages_for(:nonprofit).each do |message| %>
