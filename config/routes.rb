@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "nonprofits#index"
   resources :events
   resources :nonprofits
   devise_for :users
