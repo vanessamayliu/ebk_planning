@@ -1,4 +1,6 @@
 class NonprofitsController < ApplicationController
+  before_action :current_user_must_be_nonprofit_owner_user, only: [:edit, :update, :destroy] 
+
   before_action :set_nonprofit, only: [:show, :edit, :update, :destroy]
 
   # GET /nonprofits
@@ -58,6 +60,14 @@ class NonprofitsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_nonprofit_owner_user
+    set_nonprofit
+    unless current_user == @nonprofit.owner_user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_nonprofit
       @nonprofit = Nonprofit.find(params[:id])
