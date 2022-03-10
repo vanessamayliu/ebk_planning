@@ -5,6 +5,8 @@ class Nonprofit < ApplicationRecord
 
   # Validations
 
+  validates :name, :presence => true
+
   validates :owner_user_id, :presence => true
 
   validates :status, :presence => true
