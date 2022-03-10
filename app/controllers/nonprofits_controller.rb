@@ -5,7 +5,8 @@ class NonprofitsController < ApplicationController
 
   # GET /nonprofits
   def index
-    @nonprofits = Nonprofit.page(params[:page]).per(10)
+    @q = Nonprofit.ransack(params[:q])
+    @nonprofits = @q.result(:distinct => true).includes(:owner_user, :events).page(params[:page]).per(10)
   end
 
   # GET /nonprofits/1
