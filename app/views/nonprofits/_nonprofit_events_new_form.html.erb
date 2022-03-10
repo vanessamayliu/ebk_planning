@@ -1,0 +1,70 @@
+<!-- Form event start -->
+<%= form_with(model: @event, local: true) do |f| %>
+<!-- Form event end -->
+
+  <!-- Label and input for nonprofit_id start -->
+  <!-- Input for nonprofit_id start -->
+  <%= f.hidden_field :nonprofit_id, value: @nonprofit.id %>
+  <!-- Input for nonprofit_id end -->
+  <!-- Label and input for nonprofit_id end -->
+
+  <!-- Label and input for event_date start -->
+  <div class="form-group">
+    <%= f.label :event_date %>
+
+    <!-- Input for event_date start -->
+    <%= f.date_select :event_date, class: "form-control" %>
+    <!-- Input for event_date end -->
+  </div>
+  <!-- Label and input for event_date end -->
+
+  <!-- Label and input for event_description start -->
+  <div class="form-group">
+    <%= f.label :event_description %>
+    <!-- Input for event_description start -->
+    <%= f.text_area :event_description, rows: "3", class: "form-control" %>
+    <!-- Input for event_description end -->
+  </div>
+  <!-- Label and input for event_description end -->
+
+  <!-- Label and input for confirmed start -->
+  <div class="form-check">
+    <!-- Input for confirmed start -->
+    <%= f.check_box :confirmed, class: "form-check-input" %>
+    <!-- Input for confirmed end -->
+    <%= f.label :confirmed, class: "form-check-label" %>
+  </div>
+  <!-- Label and input for confirmed end -->
+
+  <!-- Label and input for number_volunteers start -->
+  <div class="form-group">
+    <%= f.label :number_volunteers %>
+
+    <!-- Input for number_volunteers start -->
+    <%= f.text_field :number_volunteers, class: "form-control" %>
+    <!-- Input for number_volunteers end -->
+  </div>
+  <!-- Label and input for number_volunteers end -->
+
+  <!-- Label and input for event_time_range start -->
+  <div class="form-group">
+    <%= f.label :event_time_range %>
+
+    <!-- Input for event_time_range start -->
+    <%= f.text_field :event_time_range, class: "form-control" %>
+    <!-- Input for event_time_range end -->
+  </div>
+  <!-- Label and input for event_time_range end -->
+
+  <!-- Label and input for event_lead start -->
+  <div class="form-group">
+    <%= f.label :event_lead %>
+
+    <!-- Input for event_lead start -->
+    <%= f.text_field :event_lead, class: "form-control" %>
+    <!-- Input for event_lead end -->
+  </div>
+  <!-- Label and input for event_lead end -->
+
+  <%= f.submit "Create event", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

@@ -1,0 +1,89 @@
+<!-- Form nonprofit start -->
+<%= form_with(model: @nonprofit, local: true) do |f| %>
+<!-- Form nonprofit end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <%= f.label :name %>
+
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: "form-control" %>
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <!-- Label and input for category start -->
+  <div class="form-group">
+    <%= f.label :category %>
+
+    <!-- Input for category start -->
+    <%= f.text_field :category, class: "form-control" %>
+    <!-- Input for category end -->
+  </div>
+  <!-- Label and input for category end -->
+
+  <!-- Label and input for mission start -->
+  <div class="form-group">
+    <%= f.label :mission %>
+    <!-- Input for mission start -->
+    <%= f.text_area :mission, rows: "3", class: "form-control" %>
+    <!-- Input for mission end -->
+  </div>
+  <!-- Label and input for mission end -->
+
+  <!-- Label and input for contact_name start -->
+  <div class="form-group">
+    <%= f.label :contact_name %>
+
+    <!-- Input for contact_name start -->
+    <%= f.text_field :contact_name, class: "form-control" %>
+    <!-- Input for contact_name end -->
+  </div>
+  <!-- Label and input for contact_name end -->
+
+  <!-- Label and input for contact_email start -->
+  <div class="form-group">
+    <%= f.label :contact_email %>
+
+    <!-- Input for contact_email start -->
+    <%= f.text_field :contact_email, class: "form-control" %>
+    <!-- Input for contact_email end -->
+  </div>
+  <!-- Label and input for contact_email end -->
+
+  <!-- Label and input for contact_phone start -->
+  <div class="form-group">
+    <%= f.label :contact_phone %>
+
+    <!-- Input for contact_phone start -->
+    <%= f.text_field :contact_phone, class: "form-control" %>
+    <!-- Input for contact_phone end -->
+  </div>
+  <!-- Label and input for contact_phone end -->
+
+  <!-- Label and input for owner_user_id start -->
+  <!-- Input for owner_user_id start -->
+  <%= f.hidden_field :owner_user_id, value: @user.id %>
+  <!-- Input for owner_user_id end -->
+  <!-- Label and input for owner_user_id end -->
+
+  <!-- Label and input for status start -->
+  <div class="form-group">
+    <%= f.label :status %>
+    <!-- Input for status start -->
+    <%= f.text_area :status, rows: "3", class: "form-control" %>
+    <!-- Input for status end -->
+  </div>
+  <!-- Label and input for status end -->
+
+  <!-- Label and input for notes start -->
+  <div class="form-group">
+    <%= f.label :notes %>
+    <!-- Input for notes start -->
+    <%= f.text_area :notes, rows: "3", class: "form-control" %>
+    <!-- Input for notes end -->
+  </div>
+  <!-- Label and input for notes end -->
+
+  <%= f.submit "Create nonprofit", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

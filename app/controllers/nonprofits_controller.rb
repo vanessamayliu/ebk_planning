@@ -8,6 +8,7 @@ class NonprofitsController < ApplicationController
 
   # GET /nonprofits/1
   def show
+    @event = Event.new
   end
 
   # GET /nonprofits/new
@@ -24,7 +25,12 @@ class NonprofitsController < ApplicationController
     @nonprofit = Nonprofit.new(nonprofit_params)
 
     if @nonprofit.save
-      redirect_to @nonprofit, notice: 'Nonprofit was successfully created.'
+      message = 'Nonprofit was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @nonprofit, notice: message
+      end
     else
       render :new
     end
