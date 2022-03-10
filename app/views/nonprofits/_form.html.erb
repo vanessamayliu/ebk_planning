@@ -158,30 +158,9 @@
   </div>
   <!-- Label and input for contact_phone end -->
   <!-- Label and input for owner_user_id start -->
-  <div class="form-group">
-    <% owner_user_class = "form-control" %>
-    <% owner_user_was_invalid = nonprofit.errors.include?(:owner_user) %>
-
-    <% if was_validated %>
-      <% if owner_user_was_invalid %>
-        <% owner_user_class << " is-invalid" %>
-      <% else %>
-        <% owner_user_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :owner_user_id %>
-    <!-- Input for owner_user_id start -->
-    <%= f.collection_select :owner_user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for owner_user_id end -->
-    <% if owner_user_was_invalid %>
-      <% nonprofit.errors.full_messages_for(:owner_user).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "owner_user_id" start -->
+  <%= f.hidden_field :owner_user_id, value: current_user.id %>
+  <!-- Input for "owner_user_id" end -->
   <!-- Label and input for owner_user_id end -->
   <!-- Label and input for status start -->
   <div class="form-group">
