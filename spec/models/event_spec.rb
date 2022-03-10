@@ -12,5 +12,7 @@ RSpec.describe Event, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:nonprofit_id) }
+
     end
 end
